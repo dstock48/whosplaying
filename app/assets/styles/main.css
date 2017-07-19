@@ -1,17 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
 body {
   background: #f4f4f4;
   font-family: sans-serif;
-  font-weight: 100;
-}
-
-#main h1 {
-  padding: 20px;
-  border-bottom: 1px dashed #aaa;
-  color: rgba(0,0,0,0.6);
-  font-weight: 100;
-  font-family: sans-serif;
+  margin: 0;
+  height: 100%;
 }
 
 #main {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-component {
+  height: 200px;
+  background-color: #FFAE96;
+  padding-top: 20px;
+}
+
+.header-component .logo  {
   text-align: center;
+  color: #767676;
+  margin: 0;
+  font-size: 50px;
+}
+
+.main-component {
+  height: 100%;
+  background-color: lime;
 }
