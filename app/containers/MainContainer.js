@@ -5,7 +5,7 @@ import Main from '../components/Main/Main';
 
 const mapStateToProps = (state) => {
   return {
-
+    events: state.events
   };
 };
 

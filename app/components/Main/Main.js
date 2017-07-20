@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import apiKey from '../../apiKey'
+import EventCard from '../EventCard/EventCard'
 
 class Main extends Component {
   constructor() {
@@ -10,16 +11,27 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     const today = new Date();
     const todayDate = today.getDate();
+    const todayMonth = today.getMonth() + 1;
+    const todayYear = today.getFullYear();
 
-    this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=${apiKey}&geoip=true&range=12mi&type=concert&per_page=25&datetime_local.lte=2017-07-${todayDate + 2}`)
+    this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=${apiKey}&geoip=true&range=12mi&type=concert&per_page=25&datetime_local.lte=${todayYear}-${todayMonth}-${todayDate + 2}`);
   }
 
+
   render() {
+    if (this.props.events.length === 0) {
+      return <div></div>
+    }
+    const eventCards = this.props.events.map(event => {
+      const key = event.performers.primary
+      return <EventCard key={key} event={event} />
+    })
     return(
-      <main className="main-component">MAIN COMPONENT</main>
+      <div className="main-component">
+        {eventCards}
+      </div>
     )
   }
 

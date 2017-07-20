@@ -6,6 +6,10 @@ html {
   height: 100%;
 }
 
+h1, h2, p {
+  margin: 0;
+}
+
 body {
   background: #f4f4f4;
   font-family: sans-serif;
@@ -16,22 +20,84 @@ body {
 #main {
   display: flex;
   flex-direction: column;
+  background-color: #FF5F2E;
 }
 
 .header-component {
   height: 200px;
-  background-color: #FFAE96;
+  background-color: rgba(255,255,255,.3);
   padding-top: 20px;
+  border-bottom: 1px solid #ef4410;
 }
 
 .header-component .logo  {
   text-align: center;
-  color: #767676;
+  color: #fff;
   margin: 0;
   font-size: 50px;
 }
 
 .main-component {
   height: 100%;
-  background-color: lime;
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.3);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: 200ms;
+}
+.event-card:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,.5);
+  transform: scale(1.02);
+  background-color: rgba(255, 255, 255, 0.9);
+
+}
+
+.event-card .primary-artist {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.event-card .supporting-artists {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #8E8E8E;
+}
+
+.event-card .card-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.event-card .date-time {
+  display: flex;
+  flex-direction: column;
+  color: #8E8E8E;
+  text-align: right;
+}
+
+.event-card .time {
+  margin-top: auto;
+}
+
+.event-card .card-bottom {
+  margin-top: auto;
+  color: #8E8E8E;
+}
+
+.event-card .venue-address {
+  color: #54c0dd
 }
