@@ -25,7 +25,7 @@ const EventCard = ({event}) => {
   ]
 
   return(
-    <div className="event-card">
+    <a href={event.url} target="_blank" className="event-card">
       <div className="card-top">
         <div className="artists">
           <h1 className="primary-artist">{event.performers.primary}</h1>
@@ -37,9 +37,9 @@ const EventCard = ({event}) => {
         </div>
       </div>
       <div className="card-bottom">
-        <span className="venue-name">@{event.venue.name}</span> | <span className="venue-address">{event.venue.address1}</span>
+        <span className="venue-name">@{event.venue.name}</span> | <i className="fa fa-map-marker" aria-hidden="true"></i> <span className="venue-address">{event.venue.address1}</span>
       </div>
-    </div>
+    </a>
   )
 }
 
