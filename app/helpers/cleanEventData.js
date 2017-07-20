@@ -24,9 +24,11 @@ const cleanEventData = (data) => {
       venue: {
         name: event.venue.name,
         address1: event.venue.address,
-        address2: event.venue.extended_address
+        address2: event.venue.extended_address,
+        location: event.venue.location
       },
-      price: event.stats.average_price,
+      avgPrice: event.stats.average_price,
+      url: event.url
     }
   })
 
