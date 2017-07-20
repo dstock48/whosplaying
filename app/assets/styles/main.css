@@ -15,18 +15,24 @@ body {
   font-family: sans-serif;
   margin: 0;
   height: 100%;
+  background-color: #FF5F2E;
+
 }
+
 
 #main {
   display: flex;
   flex-direction: column;
-  background-color: #FF5F2E;
 }
 
 .header-component {
-  background-color: rgba(255,255,255,.3);
+  background-color: #FF8F6D;
   padding: 30px;
   border-bottom: 1px solid #ef4410;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
 }
 
 .header-component .logo  {
@@ -34,6 +40,11 @@ body {
   color: #fff;
   margin-bottom: 15px;
   font-size: 55px;
+  text-shadow:
+  6px 2px rgba(255,245,4,.4),
+  0px -5px rgba(205,4,255,.4),
+  0px 5px rgba(28, 105, 222,.4),
+    -6px 2px rgba(255,0,0,.4);
 }
 
 .search-component {
@@ -46,7 +57,7 @@ body {
   height: 50px;
   font-size: 18px;
   padding: 10px;
-  border: 3px solid #1c69de;
+  border: 2px solid rgba(28, 105, 222, 1);
   border-radius: 4px 0 0 4px;
   transition: 200ms;
   outline: none;
@@ -68,17 +79,26 @@ body {
   cursor: pointer;
 }
 
-.main-component {
+.main {
   height: 100%;
   width: 500px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 210px;
+  animation: fade-in 400ms linear;
+}
+
+.main .location {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+  color: #fff;
+  text-shadow: 0 2px 5px rgba(0,0,0,.3);
 }
 
 .event-card {
   display: flex;
   flex-direction: column;
-  height: 110px;
+  height: 130px;
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 0 1px 8px rgba(0,0,0,.3);
@@ -99,6 +119,7 @@ body {
 .event-card .artists {
   display: flex;
   flex-direction: column;
+  width: 380px;
 }
 
 .event-card .primary-artist {
@@ -137,10 +158,38 @@ body {
   color: #8E8E8E;
 }
 
+.card-bottom .fa {
+  width: 15px;
+  text-align: center;
+}
+
 .fa-map-marker {
   color: #54c0dd
 }
 
+.event-card .venue-name {
+  margin-bottom: 3px;
+}
 .event-card .venue-address {
   color: #54c0dd
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fade-in {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
 }

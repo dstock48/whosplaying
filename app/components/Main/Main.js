@@ -29,7 +29,8 @@ class Main extends Component {
       return <EventCard key={key} event={event} />
     })
     return(
-      <div className="main-component">
+      <div className="main">
+        <h1 className="location">{this.props.location}</h1>
         {eventCards}
       </div>
     )

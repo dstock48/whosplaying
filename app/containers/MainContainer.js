@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
-import { fetchEventData } from '../actions';
+import { fetchLocalEventData } from '../actions';
 import Main from '../components/Main/Main';
 
 
 const mapStateToProps = (state) => {
   return {
-    events: state.events
+    events: state.events,
+    location: state.searchLocation
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getEventData: (url) => {
-      dispatch(fetchEventData(url))
+      dispatch(fetchLocalEventData(url))
     }
   };
 };
