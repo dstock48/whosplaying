@@ -1,21 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchSpecificEventData, setCurrentLocation } from '../actions';
+import { fetchEventData, setCurrentLocation, LatLong } from '../actions';
 import SearchInput from '../components/SearchInput/SearchInput';
-
-
-// const mapStateToProps = (state) => {
-//   return {
-//     events: state.events
-//   };
-// };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getSearchEventData: (url) => {
-      dispatch(fetchSpecificEventData(url))
+    getEventData: (url) => {
+      dispatch(fetchEventData(url))
     },
     setLocation: (locationName) => {
       dispatch(setCurrentLocation(locationName))
+    },
+    setLatLong: (latLong) => {
+      dispatch(LatLong(latLong))
     }
   };
 };

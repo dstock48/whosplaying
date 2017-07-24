@@ -6,7 +6,7 @@ html {
   height: 100%;
 }
 
-h1, h2, p {
+h1, h2, h3, p {
   margin: 0;
 }
 
@@ -26,13 +26,14 @@ body {
 }
 
 .header-component {
-  background-color: #FF8F6D;
+  background-color: #651d07;
   padding: 30px;
-  border-bottom: 1px solid #ef4410;
+  border-bottom: 1px solid #a23312;
   position: fixed;
   width: 100%;
   z-index: 10000;
-  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  text-align: center;
 }
 
 .header-component .logo  {
@@ -41,15 +42,28 @@ body {
   margin-bottom: 15px;
   font-size: 55px;
   text-shadow:
-  6px 2px rgba(255,245,4,.4),
-  0px -5px rgba(205,4,255,.4),
-  0px 5px rgba(28, 105, 222,.4),
-    -6px 2px rgba(255,0,0,.4);
+  1px 1px 2px rgba(0,0,0,.2),
+  -1px -1px 2px rgba(0,0,0,.2),
+  1px -1px 2px rgba(0,0,0,.2),
+  -1px 1px 2px rgba(0,0,0,.2),
+  1px 1px 2px rgba(0,0,0,.2),
+  6px 2px rgba(255,245,4,.6),
+  0px -5px rgba(205,4,255,.6),
+  0px 5px rgba(28, 105, 222,.6),
+  -6px 2px rgba(255,0,0,.6);
 }
 
 .search-component {
-  display: flex;
+  display: inline-flex;
+  margin: 0 auto;
   justify-content: center;
+  border-radius: 4px;
+  box-shadow:
+    2px 2px 4px rgba(0,0,0,.2),
+    -2px -2px 4px rgba(0,0,0,.2),
+    2px -2px 4px rgba(0,0,0,.2),
+    -2px 2px 4px rgba(0,0,0,.2),
+    2px 2px 4px rgba(0,0,0,.2);
 }
 
 .search-component input {
@@ -57,20 +71,31 @@ body {
   height: 50px;
   font-size: 18px;
   padding: 10px;
-  border: 2px solid rgba(28, 105, 222, 1);
+  border: 3px solid #54c0dd;
   border-radius: 4px 0 0 4px;
   transition: 200ms;
   outline: none;
+  font-weight: bold;
 }
 .search-component input:focus {
-  border-color: #1c69de;
+  border-color: #cd04ff;
+}
+.search-component input::placeholder {
+  color: #afafaf;
+  font-weight: normal;
+}
+
+.search-component input:focus ~ .submit-btn {
+  background-color: #cd04ff;
+  font-size: 26px;
 }
 
 .submit-btn {
+  transition: 200ms;
   width: 50px;
   outline: none;
   border: none;
-  background-color: #1c69de;
+  background-color: #54c0dd;
   color: #fff;
   font-size: 18px;
   border-radius: 0 4px 4px 0;
@@ -87,12 +112,38 @@ body {
   animation: fade-in 400ms linear;
 }
 
+.no-events-msg {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffc800;
+  text-shadow: 0 2px 3px rgba(0,0,0,.5);
+  margin-top: 30px;
+}
+
 .main .location {
   text-align: center;
   text-transform: uppercase;
-  padding: 20px;
+  /*padding: 20px;*/
   color: #fff;
   text-shadow: 0 2px 5px rgba(0,0,0,.3);
+}
+
+.main .today-heading,
+.main .tomorrow-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  text-shadow: 0 2px 2px rgba(0,0,0,.3);
+  margin-bottom: 5px;
+}
+
+.main .today-heading .fa,
+.main .tomorrow-heading .fa {
+  font-size: 20px;
+  margin-right: 5px;
 }
 
 .event-card {
@@ -167,6 +218,17 @@ body {
   color: #54c0dd
 }
 
+.spinner-container {
+  text-align: center;
+  font-size: 100px;
+}
+
+#spinner {
+  animation: spin 1.5s infinite linear;
+  color: #fff;
+  margin: 0 auto;
+}
+
 .event-card .venue-name {
   margin-bottom: 3px;
 }
@@ -174,7 +236,14 @@ body {
   color: #54c0dd
 }
 
+.map-container {
+  margin: 20px 0;
+  border-radius: 10px;
+}
 
+.map-element {
+  border-radius: 4px;
+}
 
 
 
@@ -191,5 +260,14 @@ body {
   }
   100% {
     opacity: 1
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
