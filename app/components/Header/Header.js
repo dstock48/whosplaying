@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SearchInputContainer from "../../containers/SearchInputContainer";
 
 const Header = () => {
   return(
     <header className="header-component">
-      <h1 className="logo">WHOSPLYNG</h1>
+      <Link to="/">
+        <h1 className="logo">WHOSPLAYING?</h1>
+      </Link>
       <SearchInputContainer />
     </header>
   )

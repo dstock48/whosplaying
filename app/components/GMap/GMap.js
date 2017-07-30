@@ -13,7 +13,7 @@ const GMap = withGoogleMap(props => {
         position={marker.position}
         className="marker"
         key={marker.key + i}
-      />
+             />
     })
   }
 
@@ -26,7 +26,7 @@ const GMap = withGoogleMap(props => {
         defaultOptions={{
           scrollwheel: false,
         }}
-        defaultZoom={11}
+        defaultZoom={10}
         center={latLong}>
         { allMarkers }
       </GoogleMap>

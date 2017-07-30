@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
+// import { Route } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 // Component Imports
 import MainContainer from '../../containers/MainContainer';
+import EventDetailContainer from '../../containers/EventDetailContainer';
 import Header from '../Header/Header';
 
 class App extends Component {
@@ -14,10 +17,13 @@ class App extends Component {
 
   render() {
     return(
-      <div>
-        <Header />
-        <MainContainer />
-      </div>
+      <Router>
+        <div>
+          <Header />
+          <Route path='/' exact component={MainContainer} />
+          <Route path='/event-details/:id' component={EventDetailContainer} />
+        </div>
+      </Router>
     )
   }
 

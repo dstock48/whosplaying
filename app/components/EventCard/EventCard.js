@@ -1,8 +1,9 @@
 import React from 'react';
-import moment from 'moment'
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
-const EventCard = ({event}) => {
-  // console.log(event);
+const EventCard = (props) => {
+  const { event } = props
 
   let day = moment(event.date).format('ddd');
   let monthNum = moment(event.date).format('M');
@@ -23,12 +24,8 @@ const EventCard = ({event}) => {
     var supportingArtistsElement = <h2 className="supporting-artists">w/ {supportingArtists}</h2>
   }
 
-  const months = [
-
-  ]
-
   return(
-    <a href={event.url} target="_blank" className="event-card">
+    <Link to={`/event-details/${event.id}`}  className="event-card" >
       <div className="card-top">
         <div className="artists">
           <h1 className="primary-artist">{event.performers.primary}</h1>
@@ -40,10 +37,16 @@ const EventCard = ({event}) => {
         </div>
       </div>
       <div className="card-bottom">
-        <p className="venue-name"><i className="fa fa-at" aria-hidden="true"></i> {event.venue.name}</p>
-        <p className="venue-address"><i className="fa fa-map-marker" aria-hidden="true"></i> {event.venue.address1}, {event.venue.address2}</p>
+        <div className="venue-name-container">
+          <i className="fa fa-at" aria-hidden="true"></i>
+          <span className="venue-name">{event.venue.name}</span>
+        </div>
+        <div className="venue-address-container">
+          <i className="fa fa-map-marker" aria-hidden="true"></i>
+          <p className="venue-address">{event.venue.address1}, {event.venue.address2}</p>
+        </div>
       </div>
-    </a>
+    </Link>
   )
 }
 

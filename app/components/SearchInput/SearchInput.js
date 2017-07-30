@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import Search from 'react-search';
+import cityList from '../../helpers/cityList';
+import moment from 'moment';
 
 class SearchInput extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       location: ''
@@ -10,7 +13,7 @@ class SearchInput extends Component {
   }
 
   handleChange(e) {
-    this.setState({location: e.target.value})
+    this.setState({location: e})
   }
 
   handleSubmit() {
@@ -29,12 +32,17 @@ class SearchInput extends Component {
 
         this.props.setLatLong(data)
 
-        const today = new Date();
-        const todayDate = today.getDate();
-        const todayMonth = today.getMonth() + 1;
-        const todayYear = today.getFullYear();
+        const date = new Date();
+        const today = moment(date);
+        const dateLimit = moment(date).add(this.props.dayView, 'day');
 
-        this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=ODE4NjQ0N3wxNTAwMzM1Nzc3Ljg2&lat=${data.lat}&lon=${data.lng}&range=12mi&type=concert&per_page=25&listing_count.gt=0&datetime_local.lte=${todayYear}-${todayMonth}-${todayDate + 2}`)
+
+        const todayDate = dateLimit.format("DD");
+        const todayMonth = dateLimit.format("MM");
+        const todayYear = dateLimit.format("YYYY");
+
+
+        this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=ODE4NjQ0N3wxNTAwMzM1Nzc3Ljg2&lat=${data.lat}&lon=${data.lng}&range=10mi&type=concert&per_page=1000&datetime_local.lte=${todayYear}-${todayMonth}-${todayDate}`)
       })
 
     this.setState({location: ''})
@@ -42,9 +50,16 @@ class SearchInput extends Component {
 
 
   render() {
+
     return(
       <div className="search-component">
-        <input onChange={(e) => this.handleChange(e)} type="text" placeholder="Enter City, State" value={this.state.location}/>
+        <Search
+          items={cityList}
+          placeholder='Pick your location'
+          onItemsChanged={(e) => {
+            if (e[0]) { this.handleChange(e[0].value) }
+          }}
+        />
         <button onClick={() => this.handleSubmit()} className="submit-btn">
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>

@@ -2,6 +2,13 @@ import { connect } from 'react-redux';
 import { fetchEventData, setCurrentLocation, LatLong } from '../actions';
 import SearchInput from '../components/SearchInput/SearchInput';
 
+
+const mapStateToProps = (state) => {
+  return {
+    dayView: state.dayView
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     getEventData: (url) => {
@@ -16,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(SearchInput);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

@@ -10,13 +10,23 @@ h1, h2, h3, p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   background: #f4f4f4;
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   margin: 0;
   height: 100%;
-  background-color: #FF5F2E;
-
+  background-blend-mode: overlay;
+  /*background-color: rgba(27, 137, 167, 0.99);*/
+  background-color: rgba(183, 87, 4, 0.99);
+  background-image: url('/assets/images/crowd2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 
@@ -26,9 +36,14 @@ body {
 }
 
 .header-component {
-  background-color: #651d07;
-  padding: 30px;
-  border-bottom: 1px solid #a23312;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-color: #04102b;*/
+  background-color: #4E0E01;
+  padding: 20px;
+  /*border-bottom: 1px solid #112d6d;*/
+  border-bottom: 1px solid #7b1001;
   position: fixed;
   width: 100%;
   z-index: 10000;
@@ -40,24 +55,31 @@ body {
   text-align: center;
   color: #fff;
   margin-bottom: 15px;
-  font-size: 55px;
+  font-size: 34px;
+  transition: 200ms;
   text-shadow:
-  1px 1px 2px rgba(0,0,0,.2),
-  -1px -1px 2px rgba(0,0,0,.2),
-  1px -1px 2px rgba(0,0,0,.2),
-  -1px 1px 2px rgba(0,0,0,.2),
-  1px 1px 2px rgba(0,0,0,.2),
-  6px 2px rgba(255,245,4,.6),
-  0px -5px rgba(205,4,255,.6),
-  0px 5px rgba(28, 105, 222,.6),
-  -6px 2px rgba(255,0,0,.6);
+  1px 1px 1px rgba(0,0,0,.3),
+  -1px -1px 1px rgba(0,0,0,.3),
+  1px -1px 1px rgba(0,0,0,.3),
+  -1px 1px 1px rgba(0,0,0,.3),
+  1px 1px 2px rgba(0,0,0,.3),
+  4px 2px rgba(255,245,4,.6),
+  0px -3px rgba(205,4,255,.6),
+  0px 3px rgba(28, 105, 222,.6),
+  -4px 2px rgba(255,0,0,.6);
+}
+.header-component .logo:hover  {
+  transform: scale(1.04);
+  letter-spacing: 1px;
 }
 
 .search-component {
   display: inline-flex;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 450px;
   justify-content: center;
   border-radius: 4px;
+  border: 4px solid #54c0dd;
   box-shadow:
     2px 2px 4px rgba(0,0,0,.2),
     -2px -2px 4px rgba(0,0,0,.2),
@@ -71,23 +93,9 @@ body {
   height: 50px;
   font-size: 18px;
   padding: 10px;
-  border: 3px solid #54c0dd;
-  border-radius: 4px 0 0 4px;
   transition: 200ms;
   outline: none;
   font-weight: bold;
-}
-.search-component input:focus {
-  border-color: #cd04ff;
-}
-.search-component input::placeholder {
-  color: #afafaf;
-  font-weight: normal;
-}
-
-.search-component input:focus ~ .submit-btn {
-  background-color: #cd04ff;
-  font-size: 26px;
 }
 
 .submit-btn {
@@ -98,7 +106,7 @@ body {
   background-color: #54c0dd;
   color: #fff;
   font-size: 18px;
-  border-radius: 0 4px 4px 0;
+  /*border-radius: 0 4px 4px 0;*/
 }
 .submit-btn:hover {
   cursor: pointer;
@@ -106,27 +114,80 @@ body {
 
 .main {
   height: 100%;
-  width: 500px;
+  width: 100%;
+  max-width: 600px;
+  padding: 8px;
   margin: 0 auto;
-  padding-top: 210px;
-  animation: fade-in 400ms linear;
+  padding-top: 170px;
+  animation: fade-in 250ms linear;
 }
 
 .no-events-msg {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-  color: #ffc800;
+  color: #fff;
   text-shadow: 0 2px 3px rgba(0,0,0,.5);
   margin-top: 30px;
 }
 
+.time-range-btns {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.time-range-btns button {
+  outline: none;
+  width: 100px;
+  height: 25px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #54c0dd;
+  border-radius: 6px;
+  transition: 200ms;
+  box-shadow: 0 2px 2px rgba(0,0,0,.3);
+}
+.time-range-btns button:hover {
+  cursor: pointer;
+  background-color: #2199b9;
+}
+.time-range-btns button:active {
+  transform: translateY(2px);
+}
+
 .main .location {
+  font-size: 28px;
   text-align: center;
   text-transform: uppercase;
-  /*padding: 20px;*/
   color: #fff;
   text-shadow: 0 2px 5px rgba(0,0,0,.3);
+}
+
+.event-count {
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  text-shadow:
+  1px 1px 1px rgba(0,0,0,.3),
+  -1px -1px 1px rgba(0,0,0,.3),
+  1px -1px 1px rgba(0,0,0,.3),
+  -1px 1px 1px rgba(0,0,0,.3),
+  1px 1px 2px rgba(0,0,0,.3),
+  4px 2px rgba(255,245,4,.6),
+  0px -3px rgba(205,4,255,.6),
+  0px 3px rgba(28, 105, 222,.6),
+  -4px 2px rgba(255,0,0,.6);
+}
+
+.date-range {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #fff;
+  text-shadow: 0 2px 1px rgba(0,0,0,.3);
 }
 
 .main .today-heading,
@@ -134,7 +195,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 22px;
   color: #fff;
   text-shadow: 0 2px 2px rgba(0,0,0,.3);
   margin-bottom: 5px;
@@ -149,39 +210,40 @@ body {
 .event-card {
   display: flex;
   flex-direction: column;
-  height: 130px;
-  margin-bottom: 20px;
   padding: 10px;
   box-shadow: 0 1px 8px rgba(0,0,0,.3);
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.93);
   transition: 200ms;
   text-decoration: none;
   color: #000;
+}
+.event-card:not(:last-child) {
+  margin-bottom: 20px;
 }
 .event-card:hover {
   cursor: pointer;
   box-shadow: 0 4px 18px rgba(0,0,0,.5);
   transform: scale(1.02);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.98);
 
 }
 
 .event-card .artists {
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 70%;
 }
 
 .event-card .primary-artist {
   margin: 0;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
 }
 
 .event-card .supporting-artists {
   margin-top: auto;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: #8E8E8E;
 }
@@ -189,29 +251,36 @@ body {
 .event-card .card-top {
   display: flex;
   justify-content: space-between;
-  height: 47px;
 }
 
 .event-card .date-time {
-  /*font-size: 18px;*/
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   color: #8E8E8E;
   text-align: right;
-}
-
-.event-card .time {
-  margin-top: auto;
+  width: 30%;
 }
 
 .event-card .card-bottom {
-  margin-top: auto;
+  margin-top: 20px;
   color: #8E8E8E;
+  font-size: 14px;
+}
+
+.card-bottom .venue-name-container,
+.card-bottom .venue-address-container {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .card-bottom .fa {
-  width: 15px;
+  min-width: 15px;
   text-align: center;
+  margin-right: 6px;
+  position: absolute;
+  top: 2px;
 }
 
 .fa-map-marker {
@@ -232,8 +301,14 @@ body {
 .event-card .venue-name {
   margin-bottom: 3px;
 }
+
 .event-card .venue-address {
   color: #54c0dd
+}
+
+.event-card .venue-address,
+.event-card .venue-name {
+  margin-left: 20px;
 }
 
 .map-container {
@@ -245,11 +320,269 @@ body {
   border-radius: 4px;
 }
 
+.event-detail {
+  margin: 170px 8px 8px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  animation: fade-in 250ms linear;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+}
 
+.event-detail .primary-artist-details {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
+.event-detail .supporting-artist-details {
+  margin-bottom: 30px;
+  text-align: center;
+}
 
+.event-detail .artist-name {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: 900;
+}
 
+.primary-artist-details .artist-name {
+  font-size: 35px;
+  font-style: italic;
+}
 
+.event-detail .genre-label {
+  margin-bottom: 5px;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.event-detail .genre-list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.event-detail .genre-list li {
+  margin: 3px;
+  background-color: #7b1001;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 100px;
+  font-size: 13px;
+}
+
+.event-detail .supporting-artist-names {
+  font-size: 14px;
+  font-weight: normal;
+  color: #8E8E8E;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.event-detail .supporting-details-list {
+  text-align: center;
+}
+
+.event-detail .venue-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-detail .venue-info .venue-name {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.event-detail .venue-info .venue-address {
+  display: inline-block;
+  color: #575757;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.event-action-btns {
+  display: flex;
+  align-items: center;
+}
+
+.event-action-btns a {
+  margin: 5px;
+}
+
+.event-detail .directions {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    background-color: #54c0dd;
+    width: 120px;
+    padding: 5px;
+    border-radius: 6px;
+    transition: 200ms;
+  }
+.event-detail .directions:hover {
+  background-color: #2199b9;
+}
+.event-detail .directions .fa-map {
+  margin-right: 6px;
+}
+
+.event-detail .find-tickets {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    background-color: #54c0dd;
+    width: 135px;
+    padding: 5px;
+    border-radius: 6px;
+    transition: 200ms;
+  }
+.event-detail .find-tickets:hover {
+  background-color: #2199b9;
+}
+.event-detail .find-tickets .fa-ticket {
+  margin-right: 6px;
+}
+
+.event-detail .map-container {
+  height: 300px;
+  width: 100%;
+  margin:20px auto 0;
+  box-shadow: 0 0px 12px rgba(0,0,0,0.3);
+}
+
+.event-detail .map-element {
+  height: 300px;
+}
+
+.event-detail .fa-star {
+  color: #ddb614;
+}
+
+.event-heading {
+  font-size: 25px;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow:
+  1px 1px 1px rgba(0,0,0,.3),
+  -1px -1px 1px rgba(0,0,0,.3),
+  1px -1px 1px rgba(0,0,0,.3),
+  -1px 1px 1px rgba(0,0,0,.3),
+  1px 1px 2px rgba(0,0,0,.3),
+  4px 2px rgba(255,245,4,.6),
+  0px -3px rgba(205,4,255,.6),
+  0px 3px rgba(28, 105, 222,.6),
+  -4px 2px rgba(255,0,0,.6);
+}
+
+.autocomplete {
+  margin: 0;
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+.autocomplete__input {
+  border: 0;
+  background: transparent !important;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1.5rem;
+  height: 25px;
+  line-height: normal;
+  margin: 1px 0;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+.autocomplete__input--hidden {
+  display: none;
+}
+.autocomplete__items {
+  margin: 0;
+  padding: 0.4rem;
+}
+.autocomplete__item {
+  cursor: pointer;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  margin-bottom: 0.3rem;
+  padding: 0.5rem;
+}
+.autocomplete__item--selected, .autocomplete__item:visited {
+  background-color: #ebebeb;
+  color: black;
+}
+.autocomplete__item:hover {
+  background-color: #54c0dd;
+  color: #fff;
+}
+.autocomplete__item--disabled {
+  background-color: white;
+  color: buttonface;
+  opacity: 0.5;
+}
+.autocomplete__item--disabled:hover {
+  background-color: white;
+  color: buttonface;
+}
+.autocomplete__item span {
+  flex: 1;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+.autocomplete__item__dropdown {
+  margin: -0.4rem;
+  /*border-radius: 4px 0 0 4px;*/
+  /*border-radius: 4px;*/
+}
+.autocomplete__menu {
+  background: white;
+  box-shadow: 0.1rem 0.1rem 3rem rgba(0, 0, 0, 0.25);
+  display: block;
+  line-height: 1.5em;
+  max-height: 30rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /*padding: 0.5em;*/
+  position: absolute;
+  text-decoration: none;
+  width: 100%;
+  visibility: visible;
+  z-index: 100;
+}
+.autocomplete__menu--wrap {
+  position: relative;
+  width: 100%;
+}
+.autocomplete__menu--hidden {
+  visibility: hidden;
+}
+.autocomplete__dropdown {
+  background: none !important;
+  flex: 0 !important;
+  float: right;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-top: -0.2rem;
+}
+.autocomplete__dropdown:before {
+  content: '\25be';
+}
+.autocomplete__close {
+  background: none !important;
+  flex: 0 !important;
+  float: right;
+  padding: 0 0.5rem;
+}
+.autocomplete__close:before {
+  content: '\00d7';
+}
 
 
 
@@ -270,4 +603,50 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+@media screen and (min-width: 500px) {
+  .header-component .logo {
+    font-size: 50px;
+    text-shadow:
+    1px 1px 2px rgba(0,0,0,.2),
+    -1px -1px 2px rgba(0,0,0,.2),
+    1px -1px 2px rgba(0,0,0,.2),
+    -1px 1px 2px rgba(0,0,0,.2),
+    1px 1px 2px rgba(0,0,0,.2),
+    6px 2px rgba(255,245,4,.6),
+    0px -5px rgba(205,4,255,.6),
+    0px 5px rgba(28, 105, 222,.6),
+    -6px 2px rgba(255,0,0,.6);
+  }
+  .header-component .logo:hover  {
+    transform: scale(1.06);
+    letter-spacing: 3px;
+  }
+
+  .main {
+    padding-top: 188px;
+  }
+
+  .event-card .primary-artist {
+    font-size: 24px;
+  }
+
+  .event-card .supporting-artists,
+  .event-card .card-bottom,
+  .event-card .date-time {
+    font-size: 16px;
+  }
+
+  .event-detail {
+    margin: 188px auto 8px;
+    max-width: 700px;
+    padding: 8px;
+  }
+
+  .event-detail .event-heading {
+    font-size: 32px;
+  }
+
 }

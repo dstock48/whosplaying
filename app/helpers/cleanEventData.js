@@ -3,22 +3,23 @@ const cleanEventData = (data) => {
   .map(event => {
     const primaryArtist = event.performers.find(perf => perf.primary === true)
     const supportingArtists = event.performers.filter(perf => perf.primary !== true)
-    const names = event.performers.map(perf => perf.short_name)
-    const genres = event.performers.map(perf => {
+    const names = event.performers.map(perf => perf.short_name.split('/').join(' - '))
+    const genres = event.performers.reduce((acc, perf) => {
       if (perf.genres) {
         const mappedGenres = perf.genres.map(genre => genre.name)
-        return mappedGenres
+        acc[perf.short_name.split('/').join(' - ')] = mappedGenres
       } else {
-        return 'no genre data'
+        acc[perf.short_name.split('/').join(' - ')] = ['no genre data']
       }
-    })
+      return acc
+    }, {})
 
     return {
       performers: {
         names,
         genres,
-        primary: primaryArtist.short_name,
-        supporting: supportingArtists.map(artist => artist.short_name)
+        primary: primaryArtist.short_name.split('/').join(' - '),
+        supporting: supportingArtists.map(artist => artist.short_name.split('/').join(' - '))
       },
       date: event.datetime_local,
       venue: {
@@ -27,8 +28,8 @@ const cleanEventData = (data) => {
         address2: event.venue.extended_address,
         location: event.venue.location
       },
-      avgPrice: event.stats.average_price,
-      url: event.url
+      url: event.url,
+      id: event.id
     }
   })
 
