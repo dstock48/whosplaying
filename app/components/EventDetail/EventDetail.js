@@ -3,7 +3,6 @@ import GMapContainer from '../../containers/GMapContainer'
 
 const EventDetail = (props) => {
 
-
   const thisEvent = props.events.find(event => parseInt(event.id) === parseInt(props.match.params.id))
 
   // console.log(thisEvent);

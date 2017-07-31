@@ -19,7 +19,8 @@ class App extends Component {
     return(
       <Router>
         <div>
-          <Header />
+          {/* <Header /> */}
+          <Route path='/' component={Header} />
           <Route path='/' exact component={MainContainer} />
           <Route path='/event-details/:id' component={EventDetailContainer} />
         </div>

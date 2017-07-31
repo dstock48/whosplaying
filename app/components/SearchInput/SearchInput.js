@@ -46,6 +46,8 @@ class SearchInput extends Component {
       })
 
     this.setState({location: ''})
+
+    this.props.history.push('/')
   }
 
 

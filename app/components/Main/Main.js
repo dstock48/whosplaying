@@ -138,7 +138,7 @@ class Main extends Component {
           <button onClick={() => this.fetchNewEvents(7)}>7 Day</button>
         </div>
 
-        <h1 className="location"><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.props.location}</h1>
+        <h1 className="location"><i className="fa fa-location-arrow" aria-hidden="true"></i> <span className="location-name">{this.props.location}</span></h1>
 
         <GMapContainer
           containerElement={

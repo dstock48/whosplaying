@@ -27,7 +27,7 @@ const GMap = withGoogleMap(props => {
           scrollwheel: false,
         }}
         defaultZoom={10}
-        center={latLong}>
+        center={Object.keys(latLong).length ? latLong : {lat: 39.7392358, lng: -104.990251}}>
         { allMarkers }
       </GoogleMap>
     </div>
