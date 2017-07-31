@@ -3,22 +3,20 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 const GMap = withGoogleMap(props => {
 
-  let { markersList, latLong } = props
-// console.dir(Marker);
-  let allMarkers;
+  const { markersList, latLong } = props
 
+  let allMarkers;
   if (markersList.length > 0) {
     allMarkers = markersList.map((marker, i) => {
-      return <Marker
-        position={marker.position}
-        className="marker"
-        key={marker.key + i}
-             />
+      return(
+        <Marker
+          position={marker.position}
+          className="marker"
+          key={marker.key + i}
+        />
+      )
     })
   }
-
-
-  // console.log(allMarkers);
 
   return (
     <div>

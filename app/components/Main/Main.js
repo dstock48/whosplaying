@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import moment from 'moment'
 import apiKey from '../../apiKey'
+
+// Component/Container Imports
 import EventCard from '../EventCard/EventCard'
 import GMapContainer from '../../containers/GMapContainer'
 import EventCardContainer from '../../containers/EventCardContainer'
-import moment from 'moment'
 
 class Main extends Component {
   constructor() {
@@ -29,13 +31,11 @@ class Main extends Component {
     this.fetchEvents(this.props.dayView)
   }
 
-
   fetchEvents(timeRange) {
 
     const date = new Date();
     const today = moment(date);
     const dateLimit = moment(date).add(timeRange, 'day');
-
 
     const todayDate = dateLimit.format("DD");
     const todayMonth = dateLimit.format("MM");
@@ -43,7 +43,6 @@ class Main extends Component {
 
     if (this.props.events.length === 0) {
       this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=${apiKey}&geoip=true&range=10mi&type=concert&per_page=1000&datetime_local.lte=${todayYear}-${todayMonth}-${todayDate}`);
-
     }
 
     this.setState({
@@ -53,7 +52,6 @@ class Main extends Component {
     })
 
     this.props.setDayView(timeRange)
-
   }
 
   fetchNewEvents(timeRange) {
@@ -62,11 +60,9 @@ class Main extends Component {
     const today = moment(date);
     const dateLimit = moment(date).add(timeRange, 'day');
 
-
     const todayDate = dateLimit.format("DD");
     const todayMonth = dateLimit.format("MM");
     const todayYear = dateLimit.format("YYYY");
-
 
     this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=${apiKey}&lat=${this.props.latLong.lat}&lon=${this.props.latLong.lng}&range=10mi&type=concert&per_page=1000&datetime_local.lte=${todayYear}-${todayMonth}-${todayDate}`);
 
@@ -81,8 +77,6 @@ class Main extends Component {
 
 
   render() {
-    // console.log(this.props);
-
     if (this.props.events.length === 0) {
       return <div className="main">
         <h1 className="location">{this.props.location}</h1>
@@ -119,7 +113,6 @@ class Main extends Component {
       const key = event.performers.primary
       return <EventCardContainer key={key + i} event={event} />
     })
-
 
     const markerList = this.props.events.map(event => {
       return {
@@ -172,7 +165,6 @@ class Main extends Component {
       </div>
     )
   }
-
 }
 
 export default Main;

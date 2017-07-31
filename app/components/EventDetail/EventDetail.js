@@ -1,11 +1,18 @@
 import React from "react";
+import moment from 'moment';
+
+// Component/Container Imports
 import GMapContainer from '../../containers/GMapContainer'
 
 const EventDetail = (props) => {
 
   const thisEvent = props.events.find(event => parseInt(event.id) === parseInt(props.match.params.id))
 
-  // console.log(thisEvent);
+  let day = moment(thisEvent.date).format('ddd');
+  let monthNum = moment(thisEvent.date).format('MMMM');
+  let dayNum = moment(thisEvent.date).format('D');
+  let time = moment(thisEvent.date).format('h:mm');
+  let ampm = moment(thisEvent.date).format('a');
 
   if (thisEvent.performers.supporting.length === 0) {
     var supportingArtists = <p className="supporting-artist-details"></p>
@@ -27,7 +34,6 @@ const EventDetail = (props) => {
         </div>
       )
     })
-
   }
 
   const primaryArtistGenres = thisEvent.performers.genres[thisEvent.performers.primary]
@@ -45,7 +51,6 @@ const EventDetail = (props) => {
     <div className="event-detail">
       <div className="primary-artist-details">
         <h2 className="event-heading">ARTISTS</h2>
-        {/* <h2 className="event-subheading">Headliner:</h2> */}
         <h3 className="artist-name">{thisEvent.performers.primary}</h3>
         <div className="genre-info">
           <p className="genre-label">Genres:</p>
@@ -55,7 +60,6 @@ const EventDetail = (props) => {
         </div>
       </div>
       <div className="supporting-details-list">
-        {/* <h2 className="event-subheading">Opener(s):</h2> */}
         <div className="artist-cards">
           {supportingArtists}
         </div>
@@ -63,7 +67,16 @@ const EventDetail = (props) => {
       <div className="venue-info">
         <h2 className="event-heading">VENUE</h2>
         <h3 className="venue-name">{thisEvent.venue.name}</h3>
+
+        <div className="event-start-time">
+          <p className="sub-label">Date:</p>
+          <p className="event-date">{`${day}, ${monthNum} ${dayNum}`}</p>
+          <p className="sub-label">Doors Open:</p>
+          <p className="event-time">{`${time}${ampm}`}</p>
+        </div>
+
         <div className="venue-address">
+          <p className="sub-label">Address:</p>
           <p>{thisEvent.venue.address1}</p>
           <p>{thisEvent.venue.address2}</p>
         </div>

@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 const EventCard = (props) => {
-  const { event } = props
+  const { event } = props;
 
   let day = moment(event.date).format('ddd');
   let monthNum = moment(event.date).format('M');
@@ -25,7 +25,7 @@ const EventCard = (props) => {
   }
 
   return(
-    <Link to={`/event-details/${event.id}`}  className="event-card" >
+    <Link to={`/event-details/${event.id}`} className="event-card" >
       <div className="card-top">
         <div className="artists">
           <h1 className="primary-artist">{event.performers.primary}</h1>

@@ -39,10 +39,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*background-color: #04102b;*/
   background-color: #4E0E01;
   padding: 20px;
-  /*border-bottom: 1px solid #112d6d;*/
   border-bottom: 1px solid #7b1001;
   position: fixed;
   width: 100%;
@@ -106,7 +104,6 @@ body {
   background-color: #54c0dd;
   color: #fff;
   font-size: 18px;
-  /*border-radius: 0 4px 4px 0;*/
 }
 .submit-btn:hover {
   cursor: pointer;
@@ -353,6 +350,7 @@ body {
 }
 
 .event-detail .genre-label {
+  color: #666665;
   margin-bottom: 5px;
   font-weight: normal;
   font-size: 16px;
@@ -396,15 +394,31 @@ body {
 }
 
 .event-detail .venue-info .venue-name {
-  margin-bottom: 10px;
   font-size: 25px;
 }
 
 .event-detail .venue-info .venue-address {
   display: inline-block;
-  color: #575757;
   font-size: 18px;
   margin-bottom: 10px;
+}
+
+.event-detail .event-start-time {
+  margin: 15px auto;
+}
+
+.event-detail .event-date {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-detail .sub-label {
+  color: #666665;
+  font-size: 16px;
+}
+
+.event-detail .event-time {
+  font-size: 18px;
 }
 
 .event-action-btns {
@@ -606,6 +620,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+
 
 
 @media screen and (min-width: 500px) {
