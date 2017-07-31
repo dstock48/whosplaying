@@ -5,6 +5,7 @@ export const fetchEventData = (url) => {
     fetch(url)
       .then((response) => response.json())
       .then(data => {
+        dispatch(LatLong({lat: data.meta.geolocation.lat, lng: data.meta.geolocation.lon}))
         const currentLocation = data.meta.geolocation.display_name
         dispatch(setCurrentLocation(currentLocation))
         return cleanEventData(data)

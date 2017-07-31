@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchEventData, setDayView } from '../actions';
+import { fetchEventData, setDayView, LatLong } from '../actions';
 import Main from '../components/Main/Main';
 
 
@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setDayView: (view) => {
       dispatch(setDayView(view))
+    },
+    setLatLong: (latLong) => {
+      dispatch(LatLong(latLong))
     }
   };
 };
