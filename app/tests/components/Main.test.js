@@ -7,6 +7,13 @@ describe('Main component', () => {
 
   const events = cleanedMockData;
 
+  it('should render a message if no events are found', () => {
+    const wrapper = shallow(<Main events={[]} />)
+    const message = wrapper.find('.no-events-msg')
+
+    expect(message.length).toEqual(1);
+  });
+
   it('should render an amount of EventCards equal to the amount of events', () => {
     const wrapper = shallow(<Main events={cleanedTodayMockData} />)
     const eventCards = wrapper.find('EventCard')
