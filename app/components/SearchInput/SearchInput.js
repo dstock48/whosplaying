@@ -18,7 +18,7 @@ class SearchInput extends Component {
   }
 
   handleSubmit() {
-
+  // test this sad path
     if (this.state.location.length === 0) {
       alert("You cannot submit an empty search. Please select a location before submitting your search.")
       return

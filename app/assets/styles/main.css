@@ -21,8 +21,9 @@ body {
   margin: 0;
   height: 100%;
   background-blend-mode: overlay;
-  /*background-color: rgba(27, 137, 167, 0.99);*/
   background-color: rgba(183, 87, 4, 0.99);
+  /*background-color: rgba(173, 112, 59, 0.99);*/
+  /*background-color: rgba(171, 137, 107, 0.99);*/
   background-image: url('/assets/images/crowd2.jpg');
   background-size: cover;
   background-position: center;
@@ -40,7 +41,8 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #4E0E01;
-  padding: 20px;
+  /*background-color: #2B211F;*/
+  padding: 30px;
   border-bottom: 1px solid #7b1001;
   position: fixed;
   width: 100%;
@@ -115,7 +117,7 @@ body {
   max-width: 600px;
   padding: 8px;
   margin: 0 auto;
-  padding-top: 170px;
+  padding-top: 190px;
   animation: fade-in 250ms linear;
 }
 
@@ -320,7 +322,7 @@ body {
 }
 
 .event-detail {
-  margin: 170px 8px 8px;
+  margin: 190px 8px 8px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   animation: fade-in 250ms linear;
@@ -644,7 +646,7 @@ body {
   }
 
   .main {
-    padding-top: 188px;
+    padding-top: 220px;
   }
 
   .event-card .primary-artist {
@@ -658,7 +660,7 @@ body {
   }
 
   .event-detail {
-    margin: 188px auto 8px;
+    margin: 220px auto 8px;
     max-width: 700px;
     padding: 8px;
   }

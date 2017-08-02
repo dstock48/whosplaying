@@ -31,10 +31,11 @@ describe('Main component', () => {
     expect(renderedEventCount).toEqual(eventCount);
   });
 
-  it.skip('should render a map component', () => {
+  it('should render a map', () => {
     const location = 'Denver, CO'
     const wrapper = shallow(<Main location={location} events={cleanedTodayMockData} />)
-    console.log(wrapper.debug());
+    const mapElement = wrapper.find('.map-element')
+    expect(mapElement.length).toEqual(1)
   });
 
 });

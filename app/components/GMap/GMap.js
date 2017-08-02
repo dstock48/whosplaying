@@ -3,7 +3,7 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 const GMap = withGoogleMap(props => {
 
-  const { markersList, latLong } = props
+  const { markersList, latLong, zoomLevel, latLongVenue } = props
 
   let allMarkers;
   if (markersList.length > 0) {
@@ -24,8 +24,8 @@ const GMap = withGoogleMap(props => {
         defaultOptions={{
           scrollwheel: false,
         }}
-        defaultZoom={10}
-        center={Object.keys(latLong).length ? latLong : {lat: 39.7392358, lng: -104.990251}}>
+        defaultZoom={zoomLevel || 10}
+        center={latLongVenue || latLong}>
         { allMarkers }
       </GoogleMap>
     </div>

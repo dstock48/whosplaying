@@ -134,16 +134,18 @@ class Main extends Component {
 
         <h1 className="location"><i className="fa fa-location-arrow" aria-hidden="true"></i> <span className="location-name">{this.props.location}</span></h1>
 
-        <GMapContainer
-          containerElement={
-            <div className="map-container" style={{ height: `300px` }} />
-          }
-          mapElement={
-            <div className="map-element" style={{ height: `300px` }} />
-          }
-          markersList={markerList}
-          latLong={this.state.latLong}
-        />
+        <div className="map-element">
+          <GMapContainer
+            containerElement={
+              <div className="map-container" style={{ height: `300px` }} />
+            }
+            mapElement={
+              <div className="map-element" style={{ height: `300px` }} />
+            }
+            markersList={markerList}
+            latLongCenter={null}
+          />
+        </div>
 
         <h2 className="event-count">{this.props.events.length} Events</h2>
         <h3 className="date-range">{this.state.currentDate} - {this.state.dateLimit}</h3>

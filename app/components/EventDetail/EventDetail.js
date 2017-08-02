@@ -8,6 +8,12 @@ const EventDetail = (props) => {
 
   const thisEvent = props.events.find(event => parseInt(event.id) === parseInt(props.match.params.id))
 
+  const venueLatLong = Object.assign(
+    {},
+    thisEvent.venue.location,
+    {lng: thisEvent.venue.location.lon}
+  )
+
   let day = moment(thisEvent.date).format('ddd');
   let monthNum = moment(thisEvent.date).format('MMMM');
   let dayNum = moment(thisEvent.date).format('D');
@@ -93,7 +99,9 @@ const EventDetail = (props) => {
           <div className="map-element" />
         }
         markersList={[marker]}
-        latLong={props.latLong}
+        latLong={Object.assign({}, thisEvent.venue.location, {lng: thisEvent.venue.location.lon})}
+        latLongVenue={venueLatLong}
+        zoomLevel={17}
       />
     </div>
   )

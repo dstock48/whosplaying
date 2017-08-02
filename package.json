@@ -6,7 +6,7 @@
     "build": "webpack --config ./webpack.config.js",
     "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback",
     "start": "npm build && nodemon src/app.js",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
