@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import moment from 'moment'
 import apiKey from '../../apiKey'
+import filteredEventCards from '../../helpers/filteredEventCards'
 
 // Component/Container Imports
 import EventCard from '../EventCard/EventCard'
@@ -83,37 +84,9 @@ class Main extends Component {
       </div>
     }
 
-    // TODO: COMBINE THESE 3 INTO 1 FN
-    ///////////////////
-    const todayEvents = this.props.events.filter(event => {
-      const date = new Date()
-      return parseInt(moment(event.date).format('D')) === date.getDate();
-    }).map((event, i) => {
-      const key = event.id
-      return <EventCard key={key} event={event} />
-    })
-
-    const tomorrowEvents = this.props.events.filter(event => {
-      const date = new Date()
-      return parseInt(moment(event.date).format('D')) === parseInt(moment(date).add(1, 'day').format('D'));
-    }).map((event, i) => {
-      const key = event.id
-      return <EventCard key={key + i} event={event} />
-    })
-
-    const allOtherEvents = this.props.events.filter(event => {
-
-      const date = new Date()
-
-      let eventDay = parseInt(moment(event.date).format('x'))
-      let limit = parseInt(moment(date).add(2, 'day').format('x'))
-
-      return eventDay > limit;
-    }).map((event, i) => {
-      const key = event.id
-      return <EventCard key={key + i} event={event} />
-    })
-////////////////////////////
+    const todayEvents = filteredEventCards(this.props.events, 0, 'D')
+    const tomorrowEvents = filteredEventCards(this.props.events, 1, 'D')
+    const allOtherEvents = filteredEventCards(this.props.events, 2, 'x')
 
     const markerList = this.props.events.map(event => {
       return {
