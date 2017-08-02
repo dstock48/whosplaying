@@ -77,8 +77,8 @@ const EventDetail = (props) => {
 
         <div className="venue-address">
           <p className="sub-label">Address:</p>
-          <p>{thisEvent.venue.address1}</p>
-          <p>{thisEvent.venue.address2}</p>
+          <p className="venue-address-1">{thisEvent.venue.address1}</p>
+          <p className="venue-address-2">{thisEvent.venue.address2}</p>
         </div>
         <div className="event-action-btns">
           <a className="directions" target="_blank" href={`https://www.google.com/maps/dir/?api=1&destination=${thisEvent.venue.address1} ${thisEvent.venue.address2}`}><i className="fa fa-map" aria-hidden="true"></i>Directions</a>

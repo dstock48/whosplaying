@@ -335,6 +335,345 @@ export const cleanedMockData = [
   }
 ]
 
+const todayDate = new Date()
+
+export const cleanedTodayMockData = [
+  {
+    "performers": {
+      "names": [
+        "P-Nuckle"
+      ],
+      "genres": {
+        "P-Nuckle": [
+          "Alternative"
+        ]
+      },
+      "primary": "P-Nuckle",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Globe Hall",
+      "address1": "4483 Logan St",
+      "address2": "Denver, CO 80216",
+      "location": {
+        "lat": 39.7781,
+        "lon": -104.983
+      }
+    },
+    "url": "https://seatgeek.com/p-nuckle-tickets/denver-colorado-globe-hall-2-2017-07-30-3-pm/concert/3909634",
+    "id": 3909634
+  },
+  {
+    "performers": {
+      "names": [
+        "Chevelle",
+        "Black Map"
+      ],
+      "genres": {
+        "Chevelle": [
+          "Pop",
+          "Rock",
+          "Alternative"
+        ],
+        "Black Map": [
+          "Hard Rock"
+        ]
+      },
+      "primary": "Chevelle",
+      "supporting": [
+        "Black Map"
+      ]
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Fillmore Auditorium",
+      "address1": "1510 Clarkson Street",
+      "address2": "Denver, CO 80218",
+      "location": {
+        "lon": -104.977,
+        "lat": 39.7404
+      }
+    },
+    "url": "https://seatgeek.com/chevelle-with-black-map-tickets/denver-colorado-fillmore-auditorium-2017-07-30-6-30-pm/concert/3786362",
+    "id": 3786362
+  },
+  {
+    "performers": {
+      "names": [
+        "Afton Showcase"
+      ],
+      "genres": {
+        "Afton Showcase": [
+          "Alternative"
+        ]
+      },
+      "primary": "Afton Showcase",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Cervantes' Other Side",
+      "address1": "2637 Welton St.",
+      "address2": "Denver, CO 80205",
+      "location": {
+        "lat": 39.7544,
+        "lon": -104.979
+      }
+    },
+    "url": "https://seatgeek.com/afton-showcase-tickets/denver-colorado-cervantes-other-side-2017-07-30-6-30-pm/concert/3871869",
+    "id": 3871869
+  },
+  {
+    "performers": {
+      "names": [
+        "Providence",
+        "Outlier"
+      ],
+      "genres": {
+        "Providence": [
+          "no genre data"
+        ],
+        "Outlier": [
+          "no genre data"
+        ]
+      },
+      "primary": "Outlier",
+      "supporting": [
+        "Providence"
+      ]
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Moon Room",
+      "address1": "1902 Blake St.",
+      "address2": "Denver, CO 80202",
+      "location": {
+        "lon": -104.995,
+        "lat": 39.7533
+      }
+    },
+    "url": "https://seatgeek.com/outlier-with-providence-tickets/denver-colorado-moon-room-2017-07-30-7-pm/concert/3933864",
+    "id": 3933864
+  },
+  {
+    "performers": {
+      "names": [
+        "Creedence Clearwater Revisited"
+      ],
+      "genres": {
+        "Creedence Clearwater Revisited": [
+          "Pop",
+          "Rock",
+          "Classic Rock"
+        ]
+      },
+      "primary": "Creedence Clearwater Revisited",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Hudson Gardens",
+      "address1": "6115 South Santa Fe Drive",
+      "address2": "Littleton, CO 80120",
+      "location": {
+        "lat": 39.6058,
+        "lon": -105.021
+      }
+    },
+    "url": "https://seatgeek.com/creedence-clearwater-revisited-tickets/littleton-colorado-hudson-gardens-2017-07-30-7-30-pm/concert/3850306",
+    "id": 3850306
+  },
+  {
+    "performers": {
+      "names": [
+        "Warbly Jets"
+      ],
+      "genres": {
+        "Warbly Jets": [
+          "no genre data"
+        ]
+      },
+      "primary": "Warbly Jets",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Lost Lake Lounge",
+      "address1": "3602 E. Colfax Ave.",
+      "address2": "Denver, CO 80206",
+      "location": {
+        "lat": 39.74,
+        "lon": -104.945
+      }
+    },
+    "url": "https://seatgeek.com/warbly-jets-tickets/denver-colorado-lost-lake-lounge-2017-07-30-9-pm/concert/3911693",
+    "id": 3911693
+  },
+  {
+    "performers": {
+      "names": [
+        "Such a Mess",
+        "Nominee"
+      ],
+      "genres": {
+        "Such a Mess": [
+          "no genre data"
+        ],
+        "Nominee": [
+          "no genre data"
+        ]
+      },
+      "primary": "Nominee",
+      "supporting": [
+        "Such a Mess"
+      ]
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Marquis Theater",
+      "address1": "2009 Larimer Street",
+      "address2": "Denver, CO 80205",
+      "location": {
+        "lon": -104.993,
+        "lat": 39.7534
+      }
+    },
+    "url": "https://seatgeek.com/nominee-with-such-a-mess-tickets/denver-colorado-marquis-theater-2017-07-31-7-pm/concert/3924411",
+    "id": 3924411
+  },
+  {
+    "performers": {
+      "names": [
+        "Faith Hill",
+        "Tim McGraw",
+        "Tim McGraw & Faith Hill",
+        "Soul II Soul",
+        "Soul2Soul"
+      ],
+      "genres": {
+        "Faith Hill": [
+          "Country",
+          "Folk"
+        ],
+        "Tim McGraw": [
+          "Country",
+          "Folk"
+        ],
+        "Tim McGraw & Faith Hill": [
+          "no genre data"
+        ],
+        "Soul II Soul": [
+          "Pop",
+          "Rock"
+        ],
+        "Soul2Soul": [
+          "Country",
+          "Folk"
+        ]
+      },
+      "primary": "Tim McGraw",
+      "supporting": [
+        "Faith Hill",
+        "Tim McGraw & Faith Hill",
+        "Soul II Soul",
+        "Soul2Soul"
+      ]
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Pepsi Center",
+      "address1": "1000 Chopper Circle",
+      "address2": "Denver, CO 80204",
+      "location": {
+        "lat": 39.7487,
+        "lon": -105.008
+      }
+    },
+    "url": "https://seatgeek.com/tim-mcgraw-with-faith-hill-tickets/denver-colorado-pepsi-center-2017-07-31-7-30-pm/concert/3734685",
+    "id": 3734685
+  },
+  {
+    "performers": {
+      "names": [
+        "Negative Degree"
+      ],
+      "genres": {
+        "Negative Degree": [
+          "no genre data"
+        ]
+      },
+      "primary": "Negative Degree",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Larimer Lounge",
+      "address1": "2721 Larimer Street",
+      "address2": "Denver, CO 80205",
+      "location": {
+        "lon": -104.984,
+        "lat": 39.7598
+      }
+    },
+    "url": "https://seatgeek.com/negative-degree-tickets/denver-colorado-larimer-lounge-2017-07-31-8-pm/concert/3934251",
+    "id": 3934251
+  },
+  {
+    "performers": {
+      "names": [
+        "Slothrust"
+      ],
+      "genres": {
+        "Slothrust": [
+          "Pop",
+          "Rock"
+        ]
+      },
+      "primary": "Slothrust",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Globe Hall",
+      "address1": "4483 Logan St",
+      "address2": "Denver, CO 80216",
+      "location": {
+        "lat": 39.7781,
+        "lon": -104.983
+      }
+    },
+    "url": "https://seatgeek.com/slothrust-tickets/denver-colorado-globe-hall-2-2017-07-31-8-pm/concert/3882919",
+    "id": 3882919
+  },
+  {
+    "performers": {
+      "names": [
+        "Vinyl Mondays"
+      ],
+      "genres": {
+        "Vinyl Mondays": [
+          "no genre data"
+        ]
+      },
+      "primary": "Vinyl Mondays",
+      "supporting": []
+    },
+    "date": new Date(),
+    "venue": {
+      "name": "Hi-Dive",
+      "address1": "7 S. Broadway",
+      "address2": "Denver, CO 80223",
+      "location": {
+        "lon": -104.988,
+        "lat": 39.7163
+      }
+    },
+    "url": "https://seatgeek.com/vinyl-mondays-tickets/denver-colorado-hi-dive-2017-07-31-9-pm/concert/3913165",
+    "id": 3913165
+  }
+]
+
 export const initialMockData = {
   "events": [
     {

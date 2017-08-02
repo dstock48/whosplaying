@@ -13,8 +13,8 @@ class SearchInput extends Component {
     }
   }
 
-  handleChange(e) {
-    this.setState({location: e})
+  handleChange(value) {
+    this.setState({location: value})
   }
 
   handleSubmit() {

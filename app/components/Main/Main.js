@@ -5,7 +5,6 @@ import apiKey from '../../apiKey'
 // Component/Container Imports
 import EventCard from '../EventCard/EventCard'
 import GMapContainer from '../../containers/GMapContainer'
-import EventCardContainer from '../../containers/EventCardContainer'
 
 class Main extends Component {
   constructor() {
@@ -84,21 +83,22 @@ class Main extends Component {
       </div>
     }
 
+    // TODO: COMBINE THESE 3 INTO 1 FN
+    ///////////////////
     const todayEvents = this.props.events.filter(event => {
       const date = new Date()
       return parseInt(moment(event.date).format('D')) === date.getDate();
     }).map((event, i) => {
-      // console.log(event);
       const key = event.id
-      return <EventCardContainer key={key} event={event} />
+      return <EventCard key={key} event={event} />
     })
 
     const tomorrowEvents = this.props.events.filter(event => {
       const date = new Date()
       return parseInt(moment(event.date).format('D')) === parseInt(moment(date).add(1, 'day').format('D'));
     }).map((event, i) => {
-      const key = event.performers.primary
-      return <EventCardContainer key={key + i} event={event} />
+      const key = event.id
+      return <EventCard key={key + i} event={event} />
     })
 
     const allOtherEvents = this.props.events.filter(event => {
@@ -110,9 +110,10 @@ class Main extends Component {
 
       return eventDay > limit;
     }).map((event, i) => {
-      const key = event.performers.primary
-      return <EventCardContainer key={key + i} event={event} />
+      const key = event.id
+      return <EventCard key={key + i} event={event} />
     })
+////////////////////////////
 
     const markerList = this.props.events.map(event => {
       return {

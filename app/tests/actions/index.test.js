@@ -42,12 +42,21 @@ describe('actions', () => {
     expect(actions.setDayView(dayView)).toEqual(expectedAction);
   });
 
-  it.skip('should fetch event data from Seat Geek API', () => {
+  it('should fetch event data from Seat Geek API', () => {
+    const dispatch = (action) => {
+      return action
+    }
 
     const url = `https://api.seatgeek.com/2/events?client_id=${apiKey}&geoip=true&range=10mi&type=concert&per_page=1000&datetime_local.lte=2017-07-30`
-    const mockedFetchCall = fetchMock.get(url, initialMockData)
 
-    expect(actions.fetchEventData(url)).toEqual(mockedFetchCall);
+    fetchMock.get(url, {status: 200, body: initialMockData})
+
+    const eventData = actions.fetchEventData(url)
+
+    eventData(dispatch)
+
+    expect(fetchMock.called()).toEqual(true);
+    expect(fetchMock.lastUrl()).toEqual(url)
   });
 
 });

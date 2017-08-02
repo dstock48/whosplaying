@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const EventCard = (props) => {
   const { event } = props;
 
-  let day = moment(event.date).format('ddd');
-  let monthNum = moment(event.date).format('M');
-  let dayNum = moment(event.date).format('D');
-  let hour = moment(event.date).format('h');
-  let minute = moment(event.date).format('mm');
-  let ampm = moment(event.date).format('a');
+  const day = moment(event.date).format('ddd');
+  const monthNum = moment(event.date).format('M');
+  const dayNum = moment(event.date).format('D');
+  const hour = moment(event.date).format('h');
+  const minute = moment(event.date).format('mm');
+  const ampm = moment(event.date).format('a');
 
   if (event.performers.supporting.length === 0) {
     var supportingArtistsElement = <h2 className="supporting-artists"></h2>
@@ -32,8 +32,8 @@ const EventCard = (props) => {
           {supportingArtistsElement}
         </div>
         <div className="date-time">
-          <p className="date">{day} {monthNum}/{dayNum}</p>
-          <p className="time">{hour}:{minute} {ampm}</p>
+          <p className="date">{`${day} ${monthNum}/${dayNum}`}</p>
+          <p className="time">{`${hour}:${minute} ${ampm}`}</p>
         </div>
       </div>
       <div className="card-bottom">
@@ -43,7 +43,7 @@ const EventCard = (props) => {
         </div>
         <div className="venue-address-container">
           <i className="fa fa-map-marker" aria-hidden="true"></i>
-          <p className="venue-address">{event.venue.address1}, {event.venue.address2}</p>
+          <p className="venue-address">{`${event.venue.address1}, ${event.venue.address2}`}</p>
         </div>
       </div>
     </Link>
