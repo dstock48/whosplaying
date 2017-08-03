@@ -1,5 +1,6 @@
 import React from "react";
 import moment from 'moment';
+import formatDate from '../../helpers/formatDate'
 
 // Component/Container Imports
 import GMapContainer from '../../containers/GMapContainer'
@@ -14,11 +15,7 @@ const EventDetail = (props) => {
     {lng: thisEvent.venue.location.lon}
   )
 
-  let day = moment(thisEvent.date).format('ddd');
-  let monthNum = moment(thisEvent.date).format('MMMM');
-  let dayNum = moment(thisEvent.date).format('D');
-  let time = moment(thisEvent.date).format('h:mm');
-  let ampm = moment(thisEvent.date).format('a');
+  const DATE = formatDate(thisEvent.date)
 
   if (thisEvent.performers.supporting.length === 0) {
     var supportingArtists = <p className="supporting-artist-details"></p>
@@ -76,9 +73,9 @@ const EventDetail = (props) => {
 
         <div className="event-start-time">
           <p className="sub-label">Date:</p>
-          <p className="event-date">{`${day}, ${monthNum} ${dayNum}`}</p>
+          <p className="event-date">{`${DATE.dayName}, ${DATE.monthName} ${DATE.dayNum}`}</p>
           <p className="sub-label">Doors Open:</p>
-          <p className="event-time">{`${time}${ampm}`}</p>
+          <p className="event-time">{`${DATE.time} ${DATE.ampm}`}</p>
         </div>
 
         <div className="venue-address">

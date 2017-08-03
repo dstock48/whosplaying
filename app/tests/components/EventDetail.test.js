@@ -73,7 +73,7 @@ describe('EventDetail component', () => {
 
   it('should render an event time', () => {
     const renderedEventTime = wrapper.find('.event-time')
-    expect(renderedEventTime.props().children).toEqual(`${dates.time}${dates.ampm}`)
+    expect(renderedEventTime.props().children).toEqual(`${dates.time} ${dates.ampm}`)
   });
 
 });

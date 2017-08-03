@@ -3,6 +3,7 @@ import Search from 'react-search';
 import cityList from '../../helpers/cityList';
 import moment from 'moment';
 import apiKey from '../../apiKey';
+import formatDate from '../../helpers/formatDate';
 
 class SearchInput extends Component {
   constructor(props) {
@@ -25,8 +26,10 @@ class SearchInput extends Component {
     }
 
     this.props.setLocation(this.state.location)
+
     const locationEntry = this.state.location.split(', ')
-    const locationData = fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${locationEntry[0]}+${locationEntry[1]}&key=AIzaSyDZ4s1ZJ6ZKIVJgjoehsntM4zlwvkPk7FM`)
+
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${locationEntry[0]}+${locationEntry[1]}&key=AIzaSyDZ4s1ZJ6ZKIVJgjoehsntM4zlwvkPk7FM`)
       .then(data => data.json())
       .then(data => data.results[0].geometry.location)
       .then(data => {
@@ -34,14 +37,11 @@ class SearchInput extends Component {
         this.props.setLatLong(data)
 
         const date = new Date();
-        const today = moment(date);
         const dateLimit = moment(date).add(this.props.dayView, 'day');
 
-        const todayDate = dateLimit.format("DD");
-        const todayMonth = dateLimit.format("MM");
-        const todayYear = dateLimit.format("YYYY");
+        const DATE = formatDate(dateLimit);
 
-        this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=${apiKey}&lat=${data.lat}&lon=${data.lng}&range=10mi&type=concert&per_page=1000&datetime_local.lte=${todayYear}-${todayMonth}-${todayDate}`)
+        this.props.getEventData(`https://api.seatgeek.com/2/events?client_id=${apiKey}&lat=${data.lat}&lon=${data.lng}&range=10mi&type=concert&per_page=1000&datetime_local.lte=${DATE.year}-${DATE.monthNumPadded}-${DATE.dayNumPadded}`)
       })
 
     this.setState({location: ''})

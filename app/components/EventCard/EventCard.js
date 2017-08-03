@@ -1,16 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import formatDate from '../../helpers/formatDate'
 
 const EventCard = (props) => {
   const { event } = props;
 
-  const day = moment(event.date).format('ddd');
-  const monthNum = moment(event.date).format('M');
-  const dayNum = moment(event.date).format('D');
-  const hour = moment(event.date).format('h');
-  const minute = moment(event.date).format('mm');
-  const ampm = moment(event.date).format('a');
+  const DATE = formatDate(event.date)
 
   if (event.performers.supporting.length === 0) {
     var supportingArtistsElement = <h2 className="supporting-artists"></h2>
@@ -32,8 +28,8 @@ const EventCard = (props) => {
           {supportingArtistsElement}
         </div>
         <div className="date-time">
-          <p className="date">{`${day} ${monthNum}/${dayNum}`}</p>
-          <p className="time">{`${hour}:${minute} ${ampm}`}</p>
+          <p className="date">{`${DATE.dayName} ${DATE.monthNum}/${DATE.dayNum}`}</p>
+          <p className="time">{`${DATE.time} ${DATE.ampm}`}</p>
         </div>
       </div>
       <div className="card-bottom">

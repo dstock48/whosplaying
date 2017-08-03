@@ -78,10 +78,12 @@ class Main extends Component {
 
   render() {
     if (this.props.events.length === 0) {
-      return <div className="main">
-        <h1 className="location">{this.props.location}</h1>
-        <p className="no-events-msg">* No Events Found *</p>
-      </div>
+      return (
+        <div className="main">
+          <h1 className="location">{this.props.location}</h1>
+          <p className="no-events-msg">* No Events Found *</p>
+        </div>
+      )
     }
 
     const todayEvents = filteredEventCards(this.props.events, 0, 'D')
