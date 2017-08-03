@@ -18,7 +18,7 @@ describe('Main component', () => {
     const wrapper = shallow(<Main events={cleanedTodayMockData} />)
     const eventCards = wrapper.find('EventCard')
 
-    expect(eventCards.length).toEqual(cleanedTodayMockData.length);
+    expect(eventCards.length).toEqual(11);
   });
 
   it('should render the name of the currently searched location', () => {

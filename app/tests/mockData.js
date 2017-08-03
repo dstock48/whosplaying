@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const cleanedMockData = [
   {
     "performers": {
@@ -335,8 +337,6 @@ export const cleanedMockData = [
   }
 ]
 
-const todayDate = new Date()
-
 export const cleanedTodayMockData = [
   {
     "performers": {
@@ -529,7 +529,7 @@ export const cleanedTodayMockData = [
         "Such a Mess"
       ]
     },
-    "date": new Date(),
+    "date": moment(new Date()).add(1, 'day'),
     "venue": {
       "name": "Marquis Theater",
       "address1": "2009 Larimer Street",
@@ -580,7 +580,7 @@ export const cleanedTodayMockData = [
         "Soul2Soul"
       ]
     },
-    "date": new Date(),
+    "date": moment(new Date()).add(1, 'day'),
     "venue": {
       "name": "Pepsi Center",
       "address1": "1000 Chopper Circle",
@@ -606,7 +606,7 @@ export const cleanedTodayMockData = [
       "primary": "Negative Degree",
       "supporting": []
     },
-    "date": new Date(),
+    "date": moment(new Date()).add(1, 'day'),
     "venue": {
       "name": "Larimer Lounge",
       "address1": "2721 Larimer Street",
@@ -633,7 +633,7 @@ export const cleanedTodayMockData = [
       "primary": "Slothrust",
       "supporting": []
     },
-    "date": new Date(),
+    "date": moment(new Date()).add(2, 'day').add(1, 'hour'),
     "venue": {
       "name": "Globe Hall",
       "address1": "4483 Logan St",
@@ -659,7 +659,7 @@ export const cleanedTodayMockData = [
       "primary": "Vinyl Mondays",
       "supporting": []
     },
-    "date": new Date(),
+    "date": moment(new Date()).add(2, 'day').add(1, 'hour'),
     "venue": {
       "name": "Hi-Dive",
       "address1": "7 S. Broadway",
