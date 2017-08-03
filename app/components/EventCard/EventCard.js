@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import formatDate from '../../helpers/formatDate'
+import formatDate from '../../helpers/formatDate';
+import PropTypes from 'prop-types';
 
 const EventCard = (props) => {
   const { event } = props;
@@ -47,3 +48,7 @@ const EventCard = (props) => {
 }
 
 export default EventCard;
+
+EventCard.propTypes = {
+  event: PropTypes.object
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import PropTypes from 'prop-types';
 
 const GMap = withGoogleMap(props => {
 
@@ -33,3 +34,17 @@ const GMap = withGoogleMap(props => {
 })
 
 export default GMap;
+
+GMap.propTypes = {
+  markersList: PropTypes.array,
+  latLong: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number
+  }),
+  zoomLevel: PropTypes.number,
+  latLongVenue: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number,
+    lon: PropTypes.number
+  })
+}

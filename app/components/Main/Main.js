@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import moment from 'moment'
-import apiKey from '../../apiKey'
-import filteredEventCards from '../../helpers/filteredEventCards'
+import moment from 'moment';
+import apiKey from '../../apiKey';
+import filteredEventCards from '../../helpers/filteredEventCards';
+import PropTypes from 'prop-types';
 
 // Component/Container Imports
-import EventCard from '../EventCard/EventCard'
-import GMapContainer from '../../containers/GMapContainer'
+import EventCard from '../EventCard/EventCard';
+import GMapContainer from '../../containers/GMapContainer';
 
 class Main extends Component {
   constructor() {
@@ -77,6 +78,7 @@ class Main extends Component {
 
 
   render() {
+
     if (this.props.events.length === 0) {
       return (
         <div className="main">
@@ -143,6 +145,21 @@ class Main extends Component {
       </div>
     )
   }
+}
+
+Main.propTypes = {
+  match: PropTypes.object,
+  location: PropTypes.string,
+  history: PropTypes.object,
+  events: PropTypes.arrayOf(PropTypes.object),
+  latLong: PropTypes.shape({
+    lat: PropTypes.number,
+    lng:PropTypes.number
+  }),
+  dayView: PropTypes.number,
+  getEventData: PropTypes.func,
+  setDayView: PropTypes.func,
+  setLatLong: PropTypes.func
 }
 
 export default Main;

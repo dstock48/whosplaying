@@ -12,7 +12,16 @@ describe('SearchInput component', () => {
    setLocation: jest.fn()
   }
 
-  it.skip('should update state when the input value changes', () => {
+  it.skip('should alert the user when the submit button is clicked while no location is selected', () => {
+
+    const wrapper = mount(<SearchInput {...props} />)
+
+    wrapper.setState({location: '' })
+    wrapper.find('button').simulate('click')
+
+  });
+
+  it.skip('should run the submit function when the submit button is clicked', () => {
 
     // can't get past this error...
     // No fallback response defined for GET to https://maps.googleapis.com/maps/api/geocode/json?address=Chicago+IL&key=AIzaSyDZ4s1ZJ6ZKIVJgjoehsntM4zlwvkPk7FM

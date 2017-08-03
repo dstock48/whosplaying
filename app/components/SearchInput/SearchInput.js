@@ -4,6 +4,7 @@ import cityList from '../../helpers/cityList';
 import moment from 'moment';
 import apiKey from '../../apiKey';
 import formatDate from '../../helpers/formatDate';
+import PropTypes from 'prop-types';
 
 class SearchInput extends Component {
   constructor(props) {
@@ -66,3 +67,11 @@ class SearchInput extends Component {
 }
 
 export default SearchInput;
+
+SearchInput.propTypes = {
+  dayView: PropTypes.number,
+  getEventData: PropTypes.func,
+  history: PropTypes.object,
+  setLatLong: PropTypes.func,
+  setLocation: PropTypes.func
+}

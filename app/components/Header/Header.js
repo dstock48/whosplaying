@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Component/Container Imports
 import SearchInputContainer from "../../containers/SearchInputContainer";
@@ -15,3 +16,9 @@ const Header = (props) => {
 }
 
 export default Header;
+
+Header.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object,
+  match: PropTypes.object
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import moment from 'moment';
 import formatDate from '../../helpers/formatDate'
+import PropTypes from 'prop-types';
 
 // Component/Container Imports
 import GMapContainer from '../../containers/GMapContainer'
@@ -105,3 +106,14 @@ const EventDetail = (props) => {
 }
 
 export default EventDetail;
+
+EventDetail.propTypes = {
+  events: PropTypes.array,
+  history: PropTypes.object,
+  latLong: PropTypes.shape({
+    lat: PropTypes.number,
+    lng: PropTypes.number
+  }),
+  location: PropTypes.object,
+  match: PropTypes.object,
+}
